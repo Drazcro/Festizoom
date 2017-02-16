@@ -1,0 +1,14 @@
+{# src/Festizoom/AppBundle/Resources/views/base/head.html.twig #}
+
+<head>
+    <title>{{ title }}</title>
+    {% stylesheets filter='cssrewrite, ?scssphp'
+    'bundles/festizoomapp/css/materialize.min.css'
+    'bundles/festizoomapp/css/base.css'
+    'bundles/festizoomapp/css/global.css'
+    'bundles/festizoomapp/css/med.css'
+    %}
+    <link rel="stylesheet" href="{{ asset_url }}" type="text/css" />
+    {% endstylesheets %}
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>

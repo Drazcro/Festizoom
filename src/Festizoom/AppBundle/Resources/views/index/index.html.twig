@@ -1,0 +1,337 @@
+{# src/Festizoom/AppBundle/Resources/views/index/index.html.twig #}
+
+{% extends "FestizoomAppBundle:base:pattern.html.twig" %}
+
+{% block body %}
+    <div class="row">
+        <div class="slider col s12">
+            <ul class="slides">
+                <li>
+                    <img src="{{ asset('bundles/festizoomapp/image/ca1.jpg') }}"> <!-- random image -->
+                    <div class="caption center-align z-depth-3">
+                        <h1 class="black-text">Grade all the electronic music festivals</h1>
+                        <h2 class="black-text">EDM, Trance, Hard music & more</h2>
+                    </div>
+                </li>
+                <li>
+                    <img src="{{ asset('bundles/festizoomapp/image/test2.jpg') }}"> <!-- random image -->
+                    <div class="caption center-align z-depth-3">
+                        <h2 class="black-text">25 electronic music festivals listed and 254 votes !</h2>
+                        <h5 class="light grey-text text-lighten-3"></h5>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="row">
+        <div class="presentation col s12 l4">
+            <a class="black-text" href="">
+                <div class="center card-panel hoverable tooltipped" data-position="bottom" data-delay="50" data-tooltip="Compare and choise the best electronic festival !">
+                    <i class="material-icons movieCreation ">list</i>
+                    <h2 class="black-text">Compare</h2>
+                </div>
+            </a>
+        </div>
+        <div class="presentation col s12 l4">
+            <a class="black-text" href="">
+                <div class="center card-panel hoverable tooltipped" data-position="bottom" data-delay="50" data-tooltip="Did you participate to an electronic festival ? Give your opinion !">
+                     <i class="material-icons grade">grade</i>
+                     <h2 class="black-text">Grade</h2>
+                </div>
+            </a>
+        </div>
+        <div class="presentation col s12 l4">
+            <a class="black-text" href="">
+                <div class="center card-panel hoverable tooltipped" data-position="bottom" data-delay="50" data-tooltip="Discove news festivals !">
+                    <i class="material-icons explore">explore</i>
+                    <h2 class="black-text">Explore</h2>
+                </div>
+            </a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="banner2 col s8">
+            <h2 class="black-text">Top 3 best electronic outdoor festivals</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="s12">
+            <ul id="tabs-swipe-demo" class="tabs black-text">
+                <li class="tab col s4"><a class="active black-text" onclick="Materialize.fadeInImage('#test-swipe-1')" href="#test-swipe-1"><h3 class="black-text">Festival 1</h3></a></li>
+                <li class="tab col s4"><a class="black-text" onclick="Materialize.fadeInImage('#test-swipe-2')" href="#test-swipe-2"><h3 class="black-text">Festival 2</h3></a></li>
+                <li class="tab col s4"><a class="black-text" onclick="Materialize.fadeInImage('#test-swipe-3')" href="#test-swipe-3"><h3 class="black-text">Festival 3</h3></a></li>
+            </ul>
+        </div>
+    </div>
+    <div id="test-swipe-1" class="col s12 white">
+        <div class="row">
+            <div class="col s8 amber lighten-4">
+                <h4 class="center-align black-text">Last aftermovie</h4>
+            </div>
+            <div class="col s4 amber lighten-4">
+                <h4 class="center-align black-text">Infos</h4>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s8 nopad">
+                <div class="video-container">
+                    <iframe height="315" src="https://www.youtube.com/embed/awAkIrfDl8c" frameborder="0" allowfullscreen></iframe>
+                </div>
+            </div>
+            <div class="col s4">
+                <div class="row">
+                    <div class="col s12">
+                        <ul class="collection">
+                            <li class="collection-item "><h4 class="center-align">Note of the festival</h4></li>
+                            <li class="collection-item"><p class="grade center-align">5 / 5</p></li>
+                        </ul>
+                        <div class="col s12 center-align">
+                            <a class="waves-effect waves-light btn-large black-text">All infos</a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="test-swipe-2" class="col s12 white">
+        <div class="row">
+            <div class="col s8 amber lighten-4">
+                <h3 class="center-align black-text">Dernier aftermovie</h3>
+            </div>
+            <div class="col s4 amber lighten-4">
+                <h3 class="center-align black-text">Notes</h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s8 nopad">
+                <iframe height="315" src="https://www.youtube.com/embed/Hdr271SgspA" frameborder="0" allowfullscreen></iframe>
+            </div>
+            <div class="col s4">
+                <div class="row">
+                    <div class="col s12">
+                        <ul class="collection">
+                            <li class="collection-item "><h4 class="center-align">Note générale</h4></li>
+                            <li class="collection-item"><p class="grade center-align">5 / 5</p></li>
+                        </ul>
+                        <div class="col s12 center-align">
+                            <a class="waves-effect waves-light btn-large black-text">Fiche du festival</a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="test-swipe-3" class="col s12 white">
+        <div class="row">
+            <div class="col s8 amber lighten-4">
+                <h3 class="center-align black-text">Dernier aftermovie</h3>
+            </div>
+            <div class="col s4 amber lighten-4">
+                <h3 class="center-align black-text">Notes</h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s8 nopad">
+                <iframe height="315" src="https://www.youtube.com/embed/Hdr271SgspA" frameborder="0" allowfullscreen></iframe>
+            </div>
+            <div class="col s4">
+                <div class="row">
+                    <div class="col s12">
+                        <ul class="collection">
+                            <li class="collection-item "><h4 class="center-align">Note générale</h4></li>
+                            <li class="collection-item"><p class="grade center-align">5 / 5</p></li>
+                        </ul>
+                        <div class="col s12 center-align">
+                            <a class="waves-effect waves-light btn-large black-text">Fiche du festival</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col s12">
+            <div class="row">
+                <div class="banner2 col s8">
+                    <h2 class="black-text">Top 3 best electronic indoor festivals</h2>
+                </div>
+            </div>
+            <ul id="tabs-swipe-demo" class="tabs black-text">
+                <li class="tab col s4"><a class="active black-text" onclick="Materialize.fadeInImage('#test-swipe-4')" href="#test-swipe-4"><h3>Festival 1</h3></a></li>
+                <li class="tab col s4"><a class="black-text" onclick="Materialize.fadeInImage('#test-swipe-5')" href="#test-swipe-5"><h3>Festival 2</h3></a></li>
+                <li class="tab col s4"><a class="black-text" onclick="Materialize.fadeInImage('#test-swipe-6')" href="#test-swipe-6"><h3>Festival 3</h3></a></li>
+            </ul>
+            <div id="test-swipe-4" class="col s12 white">
+                <div class="row">
+                    <div class="col s8 amber lighten-4">
+                        <h4 class="center-align black-text">Last aftermovie</h4>
+                    </div>
+                    <div class="col s4 amber lighten-4">
+                        <h4 class="center-align black-text">Notes</h4>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col s8 nopad">
+                        <iframe height="315" src="https://www.youtube.com/embed/g8zGyFLEwvc" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                    <div class="col s4">
+                        <div class="row">
+                            <div class="col s12">
+                                <ul class="collection">
+                                    <li class="collection-item "><h4 class="center-align">Note of the festival</h4></li>
+                                    <li class="collection-item"><p class="grade center-align">5 / 5</p></li>
+                                </ul>
+                                <div class="col s12 center-align">
+                                    <a class="waves-effect waves-light btn-large black-text">All infos</a>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="test-swipe-5" class="col s12 white">
+                <div class="row">
+                    <div class="col s8 amber lighten-4">
+                        <h3 class="center-align black-text">Dernier aftermovie</h3>
+                    </div>
+                    <div class="col s4 amber lighten-4">
+                        <h3 class="center-align black-text">Notes</h3>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col s8 nopad">
+                        <iframe height="315" src="https://www.youtube.com/embed/Hdr271SgspA" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                    <div class="col s4">
+                        <div class="row">
+                            <div class="col s12">
+                                <ul class="collection">
+                                    <li class="collection-item "><h4 class="center-align">Note générale</h4></li>
+                                    <li class="collection-item"><p class="grade center-align">5 / 5</p></li>
+                                </ul>
+                                <div class="col s12 center-align">
+                                    <a class="waves-effect waves-light btn-large black-text">Fiche du festival</a>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="test-swipe-6" class="col s12 white">
+                <div class="row">
+                    <div class="col s8 amber lighten-4">
+                        <h3 class="center-align black-text">Dernier aftermovie</h3>
+                    </div>
+                    <div class="col s4 amber lighten-4">
+                        <h3 class="center-align black-text">Notes</h3>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col s8 nopad">
+                        <iframe height="315" src="https://www.youtube.com/embed/Hdr271SgspA" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                    <div class="col s4">
+                        <div class="row">
+                            <div class="col s12">
+                                <ul class="collection">
+                                    <li class="collection-item "><h4 class="center-align">Note générale</h4></li>
+                                    <li class="collection-item"><p class="grade center-align">5 / 5</p></li>
+                                </ul>
+                                <div class="col s12 center-align">
+                                    <a class="waves-effect waves-light btn-large black-text">Fiche du festival</a>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="banner2 col s8">
+            <h2 class="black-text">Last listed editions</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col s12">
+            <table class="highlight centered responsive-table">
+                <thead>
+                <tr>
+                    <th data-field="id">Name of the edition</th>
+                    <th data-field="name">Name of the estival</th>
+                    <th data-field="name">Limit date</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>Alvin</td>
+                    <td>Eclair</td>
+                    <td>$0.87</td>
+                </tr>
+                <tr>
+                    <td>Alvin</td>
+                    <td>Eclair</td>
+                    <td>$0.87</td>
+                </tr>
+                <tr>
+                    <td>Alvin</td>
+                    <td>Eclair</td>
+                    <td>$0.87</td>
+                </tr>
+                <tr>
+                    <td>Alvin</td>
+                    <td>Eclair</td>
+                    <td>$0.87</td>
+                </tr>
+                <tr>
+                    <td>Alvin</td>
+                    <td>Eclair</td>
+                    <td>$0.87</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="row">
+        <div class="banner2 col s8">
+            <h2 class="black-text">Last news</h2>
+        </div>
+    </div>
+    <div class="row">
+    {% if(news|length > 0) %}
+        <div class="col s12">
+            <ul class="collapsible popout" data-collapsible="accordion">
+            {% for n in news %}
+                <li>
+                    <div class="collapsible-header">
+                        <div class="row">
+                            <div class="col s3">
+                                <span>Publied the {{ n.date|date('m-d-Y') }}</span>
+                            </div>
+                            <div class="col s9">
+                                <h3>{{ n.title }}</h3>
+                            </div>
+                        </div>
+                   </div>
+                    <div class="collapsible-body">
+                        <p class="truncate">{{ n.body }}</p>
+                        <div class="center-align">
+                            <a class="waves-effect waves-light btn black-text" href="{{ path('news', { 'title': n.utitle}) }}">Read more</a>
+                        </div>
+                    </div>
+                </li>
+            {% endfor %}
+            </ul>
+        </div>
+    {% else %}
+        <div class="col s12">
+            <p class="center-align">No news.</p>
+        </div>
+    {% endif %}
+    </div>
+{% endblock %}

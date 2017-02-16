@@ -1,0 +1,67 @@
+@font-face {
+    font-family: 'Lato';
+    src: url('../fonts/lato/LatoLatin-Black.ttf');
+}
+
+a {
+    color: black;
+}
+
+a:hover {
+    color: #ffe082;
+}
+
+a:hover h2 {
+    color: #ffe082;
+}
+
+body {
+    background-color: #212121;
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+h1 {
+    font-size: 2rem;
+    font-weight: normal;
+    font-family: 'Lato';
+}
+
+h2 {
+    font-size: 1.5rem;
+    font-weight: normal;
+    font-family: 'Lato';
+}
+
+h3 {
+    margin: 0;
+    font-size: 1.2rem;
+    line-height: 3rem;
+    text-transform: none;
+    font-family: 'Lato';
+}
+
+h4 {
+    margin: 0;
+    font-size: 1rem;
+    line-height: 3rem;
+    text-transform: none;
+    font-family: 'Lato';
+}
+
+main {
+    flex: 1 0 auto;
+}
+
+p {
+    text-align: justify;
+    padding: 1rem !important;
+    margin: 0;
+}
+
+textarea {
+    resize: vertical;
+    background-color: white;
+}
+

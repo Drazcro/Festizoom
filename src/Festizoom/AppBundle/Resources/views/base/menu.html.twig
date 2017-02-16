@@ -1,0 +1,41 @@
+{# src/Festizoom/AppBundle/Resources/views/base/menu.html.twig #}
+
+<nav class="white">
+    <div class="nav-wrapper">
+        <a href="#" class="brand-logo center"><img src="{{ asset('bundles/festizoomapp/image/logo.png') }}" alt="Festizoom" /></a>
+        <ul id="nav-mobile" class="left hide-on-med-and-down">
+            {% if (page == 'index') %}
+                <li class="active" ><a class="black-text" href="{{ path('index') }}">Home</a></li>
+            {% else %}
+                <li><a class="black-text" href="{{ path('index') }}">Home</a></li>
+            {% endif %}
+                <li><a class="black-text" href="badges.html">Grade festival</a></li>
+            {% if (page == 'festival') %}
+                <li class="active"><a class="black-text" href="badges.html">Festivals</a></li>
+            {% else %}
+                <li><a class="black-text" href="badges.html">Festivals</a></li>
+            {% endif %}
+            <li><a class="black-text" href="collapsible.html">Ranking</a></li>
+            {% if (page == 'news') %}
+                <li class="active"><a class="black-text" href="{{ path('allNews', {'pagNum': 1}) }}">News</a></li>
+            {% else %}
+                <li><a class="black-text" href="{{ path('allNews', {'pagNum': 1}) }}">News</a></li>
+            {% endif %}
+        </ul>
+        <ul class="side-nav" id="mobile-demo">
+            <li><a class="black-text" href="sass.html">Classement</a></li>
+            <li><a class="black-text" href="badges.html">Voter !</a></li>
+            <li><a class="black-text" href="collapsible.html">Contact</a></li>
+            <li><a class="black-text" href="collapsible.html">News</a></li>
+        </ul>
+        <div class="row">
+            <form>
+                <div class="input-field right col s3 nopad">
+                    <input id="search" class="black-text white" type="search" placeholder="Find electronic festival, event .." required>
+                    <label class="label-icon" for="search"><i class="material-icons black-text">search</i></label>
+                    <i class="material-icons">close</i>
+                </div>
+            </form>
+        </div>
+    </div>
+</nav>

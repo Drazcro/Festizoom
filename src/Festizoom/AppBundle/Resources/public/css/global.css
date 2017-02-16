@@ -1,0 +1,211 @@
+a:hover .card-panel {
+    color: black;
+}
+
+.banner2, .banner1 {
+    height: 40px;
+    background-image: url("../image/bandeau.png");
+    background-repeat: no-repeat;
+    background-origin: content-box;
+    background-size: 100% 100%;
+    margin: 1.5rem 0  1rem 0;
+}
+
+.banner1 h1 {
+    width: 90%;
+    margin: 0;
+    font-size: 2rem;
+    line-height: 40px;
+    padding-left: 1rem;
+}
+
+.banner2 h2 {
+    line-height: 40px;
+    padding-left: 1rem;
+    width: 80%;
+    margin: 0;
+}
+
+.brand-logo img {
+    height: 100%;
+}
+
+.btn, .btn-large {
+    background-color: #ffe082;
+    margin-bottom: 0.5rem;
+    text-transform: none;
+}
+
+.btn:hover, .btn-large:hover {
+    color: black;
+    background-color: #fff8e1;
+}
+
+.brand-logo {
+    height: 100%;
+}
+
+.caption {
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+.card-panel {
+    word-wrap: break-word;
+}
+
+.carousel {
+    min-height: 100vh;
+}
+
+.collection-item {
+    padding: 10px 1rem !important;
+}
+
+.collection-item .col{
+    line-height: 3rem;
+}
+
+.collection-item i {
+    width: 2rem;
+    font-size: 1.6rem;
+    display: block;
+    float: left;
+    text-align: center;
+    margin-right: 1rem;
+    line-height: 3rem;
+}
+
+.container {
+    overflow: hidden;
+}
+
+.fh1 {
+    margin: 0;
+    width: 100%;
+    line-height: 80px;
+}
+
+.grade {
+    font-weight: bold;
+    font-size: 2rem;
+}
+
+.indicator {
+    background-color: #ffe082 !important;
+}
+
+.slider .indicators .indicator-item.active {
+    background-color: black !important;
+}
+
+iframe {
+    width: 100%;
+}
+
+.input-field label {
+    color: #000;
+}
+
+.input-field input[type=text]:focus + label {
+    color: #000;
+}
+
+.input-field input[type=text]:focus, textarea.materialize-textarea:focus:not([readonly]) {
+    border-bottom: 1px solid #ffe082;
+    box-shadow: 0 1px 0 0 #ffe082;
+}
+
+.input-field input[type=text].valid {
+    border-bottom: 1px solid #ffe082;
+    box-shadow: 0 1px 0 0 #ffe082;
+}
+
+.input-field input[type=text].invalid {
+    border-bottom: 1px solid #ffe082;
+    box-shadow: 0 1px 0 0 #ffe082;
+}
+
+.input-field .prefix.active {
+    color: #000;
+}
+
+.festinfo  {
+    font-family: Lato;
+    font-size: 1.2rem;
+}
+
+.loadContainer p {
+    padding-top: 0 !important;
+}
+
+.page-footer {
+    color: black;
+}
+
+.pin-top {
+   position: relative;
+}
+
+.pin-bottom {
+   position: relative;
+}
+
+.pinned {
+   position: fixed !important;
+   z-index: 1;
+}
+
+.preloader-wrapper {
+    margin: 1rem;
+}
+
+.presentation a:hover .material-icons {
+    color: #ffe082;
+}
+
+.presentation .material-icons {
+    font-size: 4rem;
+}
+
+.spinner-layer {
+    border-color: #ffe082;
+}
+
+nav .active a {
+    background-color: #ffe082;
+    font-size: 1.5rem;
+}
+
+.nav-content {
+    height: 80px;
+    line-height: 80px;
+}
+
+nav ul a:hover {
+    background-color: #fff8e1;
+}
+
+.nobord {
+    border: 0;
+}
+
+.nomarg {
+    margin: 0 !important;
+}
+
+.nopad {
+    padding: 0 !important;
+}
+
+.pagination .active a {
+    background-color: #ffe082;
+    font-size: 1.5rem;
+}
+
+.row {
+    margin-bottom: 0;
+}
+
+table.highlight > tbody > tr:hover {
+    background-color: #ffe082;
+}

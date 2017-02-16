@@ -1,0 +1,19 @@
+@media only screen and (min-width: 601px) {
+    nav {
+        height: 80px;
+    }
+
+    nav ul {
+        line-height: 80px;
+    }
+
+    nav #search, nav .label-icon, nav .material-icons {
+        height: 80px !important;
+        line-height: 80px !important;
+        font-size: 15px;
+    }
+
+    nav .row {
+        height: 80px;
+    }
+}

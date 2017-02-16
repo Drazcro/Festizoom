@@ -1,0 +1,21 @@
+{# src/Festizoom/AppBundle/Resources/views/base/pattern.html.twig #}
+
+<!DOCTYPE html>
+<html>
+{{ include ("FestizoomAppBundle:base:head.html.twig") }}
+
+<body>
+    <header>
+        {{ include ("FestizoomAppBundle:base:menu.html.twig") }}
+    </header>
+    <main>
+        <div class="container grey lighten-5">
+            {% block body %}{% endblock %}
+        </div>
+    </main>
+    <footer>
+        {{ include ("FestizoomAppBundle:base:footer.html.twig") }}
+    </footer>
+    {{ include ("FestizoomAppBundle:base:js.html.twig") }}
+</body>
+</html>

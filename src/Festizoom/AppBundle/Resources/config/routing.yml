@@ -1,0 +1,58 @@
+#Route page accueil
+index:
+    path:     /accueil
+    defaults:
+        _controller: FestizoomAppBundle:Index:index
+
+#Route page de vote
+vote:
+    path:     /vote/{id}
+    defaults:
+        _controller: FestizoomAppBundle:Vote:vote
+
+#Route classement
+ranking:
+    path:     /classement/
+    defaults:
+        _controller: FestizoomAppBundle:base:classement
+
+#Route liste de toutes les news
+allNews:
+    path:     /news/page/{pagNum}
+    defaults:
+        _controller: FestizoomAppBundle:News:allNews
+    requirements:
+        pagNum: ^[1-9](\d)*
+
+#Route d'une news
+news:
+    path:     /news/{title}
+    defaults:
+        _controller: FestizoomAppBundle:News:news
+    requirements:
+        title: ([a-z0-9\-])+
+
+#Route d'un festival
+festival:
+    path:    /festival/{name}
+    defaults:
+        _controller: FestizoomAppBundle:Festival:festival
+    requirements:
+        name: ([a-z0-9\-])+
+
+#Récupérer les commentaires d'un festival associé par la page
+festival_com:
+    path:   /festival/{name}/page/{pagNum}
+    defaults:
+        _controller: FestizoomAppBundle:Comment:commentPage
+    requirements:
+        name: ([a-z0-9\-])+
+        pagNum: ^[1-9](\d)*
+    options:
+        expose: true
+
+#Routes d'administration
+_sonata_admin:
+  resource: .
+  type: sonata_admin
+  prefix: /admin
