@@ -1,0 +1,11 @@
+festizoom_app:
+    resource: "@FestizoomAppBundle/Resources/config/routing.yml"
+    prefix:   /
+
+# app/config/routing.yml
+fos_js_routing:
+    resource: "@FOSJsRoutingBundle/Resources/config/routing/routing.xml"
+
+admin_area:
+    resource: "@SonataAdminBundle/Resources/config/routing/sonata_admin.xml"
+    prefix: /admin

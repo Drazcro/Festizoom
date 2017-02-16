@@ -11,5 +11,4 @@ namespace Festizoom\AppBundle\Controller;
 
 class ContactController
 {
-
 }
