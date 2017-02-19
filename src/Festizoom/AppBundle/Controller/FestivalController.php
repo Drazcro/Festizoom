@@ -4,6 +4,7 @@ namespace Festizoom\AppBundle\Controller;
 use Festizoom\AppBundle\Entity\Festival;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Symfony\Component\HttpFoundation\Response;
 
 class FestivalController extends Controller
