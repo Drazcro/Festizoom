@@ -22,17 +22,17 @@ class Festival
     private $id;
 
     /**
-     * @ORM\OneToMany(targetEntity="\Festizoom\AppBundle\Entity\Edition", mappedBy="festival")
+     * @ORM\OneToMany(targetEntity="Festizoom\AppBundle\Entity\Edition", mappedBy="festival")
      */
      private $editions;
 
     /**
-     * @ORM\OneToMany(targetEntity="\Festizoom\AppBundle\Entity\Comment", mappedBy="festival")
+     * @ORM\OneToMany(targetEntity="Festizoom\AppBundle\Entity\Comment", mappedBy="festival")
      */
      private $comments;
 
     /**
-     * @ORM\OneToMany(targetEntity="\Festizoom\AppBundle\Entity\Video", mappedBy="festival")
+     * @ORM\OneToMany(targetEntity="Festizoom\AppBundle\Entity\Video", mappedBy="festival")
      */
     private $videos;
 
@@ -113,10 +113,21 @@ class Festival
      */
     private $period;
 
+   
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->editions = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->comments = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->videos = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
     /**
      * Get id
      *
-     * @return int
+     * @return integer
      */
     public function getId()
     {
@@ -145,6 +156,30 @@ class Festival
     public function getName()
     {
         return $this->name;
+    }
+
+    /**
+     * Set uname
+     *
+     * @param string $uname
+     *
+     * @return Festival
+     */
+    public function setUname($uname)
+    {
+        $this->uname = $uname;
+
+        return $this;
+    }
+
+    /**
+     * Get uname
+     *
+     * @return string
+     */
+    public function getUname()
+    {
+        return $this->uname;
     }
 
     /**
@@ -198,7 +233,7 @@ class Festival
     /**
      * Set capacity
      *
-     * @param int $capacity
+     * @param integer $capacity
      *
      * @return Festival
      */
@@ -212,7 +247,7 @@ class Festival
     /**
      * Get capacity
      *
-     * @return string
+     * @return integer
      */
     public function getCapacity()
     {
@@ -316,30 +351,6 @@ class Festival
     }
 
     /**
-     * Set uname
-     *
-     * @param string $uname
-     *
-     * @return Festival
-     */
-    public function setUname($uname)
-    {
-        $this->uname = $uname;
-
-        return $this;
-    }
-
-    /**
-     * Get uname
-     *
-     * @return string
-     */
-    public function getUname()
-    {
-        return $this->uname;
-    }
-
-    /**
      * Set minage
      *
      * @param integer $minage
@@ -386,22 +397,15 @@ class Festival
     {
         return $this->period;
     }
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->editions = new \Doctrine\Common\Collections\ArrayCollection();
-    }
 
     /**
      * Add edition
      *
-     * @param Edition $edition
+     * @param \Festizoom\AppBundle\Entity\Edition $edition
      *
      * @return Festival
      */
-    public function addEdition(Edition $edition)
+    public function addEdition(\Festizoom\AppBundle\Entity\Edition $edition)
     {
         $this->editions[] = $edition;
 
@@ -411,9 +415,9 @@ class Festival
     /**
      * Remove edition
      *
-     * @param Edition $edition
+     * @param \Festizoom\AppBundle\Entity\Edition $edition
      */
-    public function removeEdition(Edition $edition)
+    public function removeEdition(\Festizoom\AppBundle\Entity\Edition $edition)
     {
         $this->editions->removeElement($edition);
     }
@@ -431,11 +435,11 @@ class Festival
     /**
      * Add comment
      *
-     * @param Comment $comment
+     * @param \Festizoom\AppBundle\Entity\Comment $comment
      *
      * @return Festival
      */
-    public function addComment(Comment $comment)
+    public function addComment(\Festizoom\AppBundle\Entity\Comment $comment)
     {
         $this->comments[] = $comment;
 
@@ -445,9 +449,9 @@ class Festival
     /**
      * Remove comment
      *
-     * @param Comment $comment
+     * @param \Festizoom\AppBundle\Entity\Comment $comment
      */
-    public function removeComment(Comment $comment)
+    public function removeComment(\Festizoom\AppBundle\Entity\Comment $comment)
     {
         $this->comments->removeElement($comment);
     }
@@ -462,18 +466,14 @@ class Festival
         return $this->comments;
     }
 
-    public function __toString() {
-        return $this->name;
-    }
-
     /**
      * Add video
      *
-     * @param Video $video
+     * @param \Festizoom\AppBundle\Entity\Video $video
      *
      * @return Festival
      */
-    public function addVideo(Video $video)
+    public function addVideo(\Festizoom\AppBundle\Entity\Video $video)
     {
         $this->videos[] = $video;
 
@@ -483,9 +483,9 @@ class Festival
     /**
      * Remove video
      *
-     * @param Video $video
+     * @param \Festizoom\AppBundle\Entity\Video $video
      */
-    public function removeVideo(Video $video)
+    public function removeVideo(\Festizoom\AppBundle\Entity\Video $video)
     {
         $this->videos->removeElement($video);
     }
