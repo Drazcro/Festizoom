@@ -3,15 +3,12 @@
 namespace Festizoom\AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use Festizoom\AppBundle\Entity\Video;
-use Festizoom\AppBundle\Entity\Edition;
-use Festizoom\AppBundle\Entity\Comment;
 
 /**
  * Festival
  *
  * @ORM\Table(name="festival")
- * @ORM\Entity(repositoryClass="\Festizoom\AppBundle\Repository\FestivalRepository")
+ * @ORM\Entity(repositoryClass="Festizoom\AppBundle\Repository\FestivalRepository")
  */
 class Festival
 {
@@ -25,17 +22,17 @@ class Festival
     private $id;
 
     /**
-     * @ORM\OneToMany(targetEntity="\Festizoom\AppBundle\Entity\Edition", mappedBy="festival")
+     * @ORM\OneToMany(targetEntity="Festizoom\AppBundle\Entity\Edition", mappedBy="festival")
      */
      private $editions;
 
     /**
-     * @ORM\OneToMany(targetEntity="\Festizoom\AppBundle\Entity\Comment", mappedBy="festival")
+     * @ORM\OneToMany(targetEntity="Festizoom\AppBundle\Entity\Comment", mappedBy="festival")
      */
      private $comments;
 
     /**
-     * @ORM\OneToMany(targetEntity="\Festizoom\AppBundle\Entity\Video", mappedBy="festival")
+     * @ORM\OneToMany(targetEntity="Festizoom\AppBundle\Entity\Video", mappedBy="festival")
      */
     private $videos;
 
@@ -501,5 +498,10 @@ class Festival
     public function getVideos()
     {
         return $this->videos;
+    }
+
+    public function __toString()
+    {
+        return $this->getName();
     }
 }

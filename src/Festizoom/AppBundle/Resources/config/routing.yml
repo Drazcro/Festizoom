@@ -4,18 +4,6 @@ index:
     defaults:
         _controller: FestizoomAppBundle:Index:index
 
-#Route page de vote
-vote:
-    path:     /vote/{id}
-    defaults:
-        _controller: FestizoomAppBundle:Vote:vote
-
-#Route classement
-ranking:
-    path:     /classement/
-    defaults:
-        _controller: FestizoomAppBundle:base:classement
-
 #Route liste de toutes les news
 allNews:
     path:     /news
