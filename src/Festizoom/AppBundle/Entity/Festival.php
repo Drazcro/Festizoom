@@ -3,6 +3,9 @@
 namespace Festizoom\AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Festizoom\AppBundle\Entity\Video;
+use Festizoom\AppBundle\Entity\Comment;
+use Festizoom\AppBundle\Entity\Edition;
 
 /**
  * Festival
@@ -401,7 +404,7 @@ class Festival
      *
      * @return Festival
      */
-    public function addEdition(\Festizoom\AppBundle\Entity\Festival $edition)
+    public function addEdition(Edition $edition)
     {
         $this->editions[] = $edition;
 
@@ -413,7 +416,7 @@ class Festival
      *
      * @param \Festizoom\AppBundle\Entity\Festival $edition
      */
-    public function removeEdition(\Festizoom\AppBundle\Entity\Festival $edition)
+    public function removeEdition(Edition $edition)
     {
         $this->editions->removeElement($edition);
     }
@@ -435,7 +438,7 @@ class Festival
      *
      * @return Festival
      */
-    public function addComment(\Festizoom\AppBundle\Entity\Edition $comment)
+    public function addComment(Comment $comment)
     {
         $this->comments[] = $comment;
 
@@ -447,7 +450,7 @@ class Festival
      *
      * @param \Festizoom\AppBundle\Entity\Edition $comment
      */
-    public function removeComment(\Festizoom\AppBundle\Entity\Edition $comment)
+    public function removeComment(Comment $comment)
     {
         $this->comments->removeElement($comment);
     }
@@ -473,7 +476,7 @@ class Festival
      *
      * @return Festival
      */
-    public function addVideo(\Festizoom\AppBundle\Entity\Video $video)
+    public function addVideo(Video $video)
     {
         $this->videos[] = $video;
 
@@ -485,7 +488,7 @@ class Festival
      *
      * @param \Festizoom\AppBundle\Entity\Video $video
      */
-    public function removeVideo(\Festizoom\AppBundle\Entity\Video $video)
+    public function removeVideo(Video $video)
     {
         $this->videos->removeElement($video);
     }
