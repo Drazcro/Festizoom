@@ -22,17 +22,17 @@ class Festival
     private $id;
 
     /**
-     * @ORM\OneToMany(targetEntity="Festizoom\AppBundle\Entity\Edition", mappedBy="festival")
+     * @ORM\OneToMany(targetEntity="\Festizoom\AppBundle\Entity\Edition", mappedBy="festival")
      */
      private $editions;
 
     /**
-     * @ORM\OneToMany(targetEntity="Festizoom\AppBundle\Entity\Comment", mappedBy="festival")
+     * @ORM\OneToMany(targetEntity="\Festizoom\AppBundle\Entity\Comment", mappedBy="festival")
      */
      private $comments;
 
     /**
-     * @ORM\OneToMany(targetEntity="Festizoom\AppBundle\Entity\Video", mappedBy="festival")
+     * @ORM\OneToMany(targetEntity="\Festizoom\AppBundle\Entity\Video", mappedBy="festival")
      */
     private $videos;
 
@@ -397,11 +397,11 @@ class Festival
     /**
      * Add edition
      *
-     * @param \Festizoom\AppBundle\Entity\Festival $edition
+     * @param Edition $edition
      *
      * @return Festival
      */
-    public function addEdition(\Festizoom\AppBundle\Entity\Festival $edition)
+    public function addEdition(Edition $edition)
     {
         $this->editions[] = $edition;
 
@@ -411,9 +411,9 @@ class Festival
     /**
      * Remove edition
      *
-     * @param \Festizoom\AppBundle\Entity\Festival $edition
+     * @param Edition $edition
      */
-    public function removeEdition(\Festizoom\AppBundle\Entity\Festival $edition)
+    public function removeEdition(Edition $edition)
     {
         $this->editions->removeElement($edition);
     }
@@ -431,11 +431,11 @@ class Festival
     /**
      * Add comment
      *
-     * @param \Festizoom\AppBundle\Entity\Edition $comment
+     * @param Comment $comment
      *
      * @return Festival
      */
-    public function addComment(\Festizoom\AppBundle\Entity\Edition $comment)
+    public function addComment(Comment $comment)
     {
         $this->comments[] = $comment;
 
@@ -445,9 +445,9 @@ class Festival
     /**
      * Remove comment
      *
-     * @param \Festizoom\AppBundle\Entity\Edition $comment
+     * @param Comment $comment
      */
-    public function removeComment(\Festizoom\AppBundle\Entity\Edition $comment)
+    public function removeComment(Comment $comment)
     {
         $this->comments->removeElement($comment);
     }
@@ -469,11 +469,11 @@ class Festival
     /**
      * Add video
      *
-     * @param \Festizoom\AppBundle\Entity\Video $video
+     * @param Video $video
      *
      * @return Festival
      */
-    public function addVideo(\Festizoom\AppBundle\Entity\Video $video)
+    public function addVideo(Video $video)
     {
         $this->videos[] = $video;
 
@@ -483,9 +483,9 @@ class Festival
     /**
      * Remove video
      *
-     * @param \Festizoom\AppBundle\Entity\Video $video
+     * @param Video $video
      */
-    public function removeVideo(\Festizoom\AppBundle\Entity\Video $video)
+    public function removeVideo(Video $video)
     {
         $this->videos->removeElement($video);
     }
