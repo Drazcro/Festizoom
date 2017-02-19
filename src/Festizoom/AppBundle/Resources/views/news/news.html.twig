@@ -90,7 +90,7 @@
                     <h1 class="truncate">{{ news.title }}</h1>
                 </div>
             </div>
-            <p>Publié le {{ news.date|date('d-m-Y') }}<br /><br />{{ news.body|raw }}</p>
+            <p>Publié le {{ news.date|date('d-m-Y') }}<br /><br />{{ news.body }}</p>
             <div class="center-align">
                 <a class="waves-effect waves-light btn black-text" href="{{ path('allNews') }}">Retour</a>
             </div>
