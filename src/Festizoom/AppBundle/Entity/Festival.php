@@ -35,7 +35,7 @@ class Festival
      private $comments;
 
     /**
-     * @ORM\OneToMany(targetEntity="\Festizoom\AppBundle\Entity\Video", mappedBy="festival")
+     * @ORM\OneToMany(targetEntity="Video", mappedBy="festival")
      */
     private $videos;
 
