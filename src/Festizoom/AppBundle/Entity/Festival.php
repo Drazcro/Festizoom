@@ -25,17 +25,17 @@ class Festival
     private $id;
 
     /**
-     * @ORM\OneToMany(targetEntity="Festizoom\AppBundle\Entity\Edition", mappedBy="festival")
+     * @ORM\OneToMany(targetEntity="\Festizoom\AppBundle\Entity\Edition", mappedBy="festival")
      */
      private $editions;
 
     /**
-     * @ORM\OneToMany(targetEntity="Festizoom\AppBundle\Entity\Comment", mappedBy="festival")
+     * @ORM\OneToMany(targetEntity="\Festizoom\AppBundle\Entity\Comment", mappedBy="festival")
      */
      private $comments;
 
     /**
-     * @ORM\OneToMany(targetEntity="Festizoom\AppBundle\Entity\Video", mappedBy="festival")
+     * @ORM\OneToMany(targetEntity="\Festizoom\AppBundle\Entity\Video", mappedBy="festival")
      */
     private $videos;
 
