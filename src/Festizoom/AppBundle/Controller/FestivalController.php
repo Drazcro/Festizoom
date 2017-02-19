@@ -1,7 +1,5 @@
 <?php
-
 namespace Festizoom\AppBundle\Controller;
-
 
 use Festizoom\AppBundle\Entity\Festival;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -11,56 +9,103 @@ use Symfony\Component\HttpFoundation\Response;
 class FestivalController extends Controller
 {
     /**
-     * Recupère le festival et l'affiche sur la page festival.html.twig
+     * Recupère le festival et l'affiche
      * @ParamConverter("festival", options={"mapping": {"name": "uname"}})
      */
     public function festivalAction(Festival $festival) {
-        $editions = $festival->getEditions();
-        $commentR = $this->getDoctrine()->getManager()->getRepository('FestizoomAppBundle:Comment');
-        $videoR = $this->getDoctrine()->getManager()->getRepository('FestizoomAppBundle:Video');
-        //Compte le nombre de pages necessaires à la pagination
-        $nbComPagPage = $commentR->countNbPage($festival->getId());
-        $nbVidPagPage = $videoR->countNbPage($festival->getId());
-        //Récupère les news correspondant à la page num
-        $comments = $commentR->getPageComments(1, $festival->getId());
-        $videos = $videoR->getPageVideos(1, $festival->getId());
-        $content = $this->get('templating')
-            ->render('FestizoomAppBundle:Festival:festival.html.twig', ['title' => 'Festival',
-                                                                        'festival' => $festival,
-                                                                        'editions' => $editions,
-                                                                        'nbComPagPage' => $nbComPagPage,
-                                                                        'activeComPage' => 1,
-                                                                        'comments' => $comments,
-                                                                        'nbVidPagPage' => $nbVidPagPage,
-                                                                        'activeVidPage' => 1,
-                                                                        'videos' => $videos,
-                                                                        'page' => 'festival']);
+        $commentR = $this -> getDoctrine() -> getManager() -> getRepository('FestizoomAppBundle:Comment');
+        $videoR = $this -> getDoctrine() -> getManager() -> getRepository('FestizoomAppBundle:Video');
+        //Récupération des éditions correspondant au festival
+        $editions = $festival -> getEditions();
+        //Compte le nombre de pages necessaires à la pagination des commentaires
+        $nbComPagPage = $commentR -> countNbPage($festival->getId());
+        //Compte le nombre de pages necessaires à la pagination des vidéos
+        $nbVidPagPage = $videoR -> countNbPage($festival->getId());
+        //Récupère les commentaires correspondant à la page num
+        $comments = $commentR -> getPageComments(1, $festival->getId());
+        //Récupère les vidéos correspondant à la page num
+        $videos = $videoR -> getPageVideos(1, $festival->getId());
+        $content = $this -> get('templating')
+                         ->render('FestizoomAppBundle:Festival:festival.html.twig',
+                                   [
+                                      //Titre de la page
+                                      'title' => 'Festival',
+                                      //Festival associé
+                                      'festival' => $festival,
+                                      //Editions associées au festival
+                                      'editions' => $editions,
+                                      //Nombre de pages pour la pagination des commentaires
+                                      'nbComPagPage' => $nbComPagPage,
+                                      //Page active de la pagination des commentaires
+                                      'activeComPage' => 1,
+                                       //Commentaires liés au festival
+                                      'comments' => $comments,
+                                      //Nombre de pages pour la pagination des vidéos
+                                      'nbVidPagPage' => $nbVidPagPage,
+                                      //Page active de la pagination des commentaires
+                                      'activeVidPage' => 1,
+                                      //Vidéos liées au festival
+                                      'videos' => $videos,
+                                      //Nom pour le menu
+                                      'page' => 'festival'
+                                   ]
+                                 );
         return new Response($content);
     }
 
+    /**
+     * Récupère les festivals et les affiche avec une pagination
+     * @return Response
+     */
     public function allFestivalsAction() {
-        $festivalR = $this->getDoctrine()->getManager()->getRepository('FestizoomAppBundle:Festival');
-        $festivals = $festivalR->getPageFestivals(1);
-        $nbPagPage = $festivalR->countNbPage();
-        $content = $this->get('templating')
-            ->render('FestizoomAppBundle:Festival:festival.html.twig', ['title' => 'Festival',
-                'festivals' => $festivals,
-                'nbPagPage' => $nbPagPage,
-                'activePage' => 1,
-                'page' => 'festival']);
+        $festivalR = $this -> getDoctrine() -> getManager() -> getRepository('FestizoomAppBundle:Festival');
+        //Récupère les festivals correspondant à la page de base 1
+        $festivals = $festivalR -> getPageFestivals(1);
+        //Compte le nombre de pages necessaires à la pagination des festivals
+        $nbPagPage = $festivalR -> countNbPage();
+        $content = $this -> get('templating')
+                         -> render('FestizoomAppBundle:Festival:festival.html.twig',
+                                   [
+                                      //Titre de la page
+                                      'title' => 'Festival',
+                                      //Festivals pour la page
+                                      'festivals' => $festivals,
+                                      //Nombre de pages pour la pagination des festivals
+                                      'nbPagPage' => $nbPagPage,
+                                      //Page active de la pagination
+                                      'activePage' => 1,
+                                      //Nom pour le menu
+                                      'page' => 'festival'
+                                   ]
+                                 );
         return new Response($content);
     }
 
+    /**
+     * Récupère et affiche les festivals de la page pagNum
+     * @Method({"POST"})
+     * @param $pagNum
+     * @return Response
+     */
     public function festivalPageAction($pagNum) {
-        $festivalR = $this->getDoctrine()->getManager()->getRepository('FestizoomAppBundle:Festival');
-        $festivals = $festivalR->getPageFestivals($pagNum);
-        $nbPagPage = $festivalR->countNbPage();
-        $content = $this->get('templating')
-            ->render('FestizoomAppBundle:Festival:festivalCommentContainer.html.twig', ['title' => 'Festival',
-                'festivals' => $festivals,
-                'nbPagPage' => $nbPagPage,
-                'activePage' => $pagNum,
-                'page' => 'festival']);
+        $festivalR = $this -> getDoctrine() -> getManager() -> getRepository('FestizoomAppBundle:Festival');
+        //Récupère les festivals corrspondant à la page pagNum
+        $festivals = $festivalR -> getPageFestivals($pagNum);
+        //Compte le nombre de pages necessaires à la pagination des festivals
+        $nbPagPage = $festivalR -> countNbPage();
+        $content = $this -> get('templating')
+                         -> render('FestizoomAppBundle:Festival:festivalCommentContainer.html.twig',
+                                    [
+                                        //Titre de la page
+                                        'title' => 'Festival',
+                                        //Festivals pour la page
+                                        'festivals' => $festivals,
+                                        //Nombre de pages pour la pagination des festivals
+                                        'nbPagPage' => $nbPagPage,
+                                        //Page active de la pagination
+                                        'activePage' => $pagNum,
+                                    ]
+                                  );
         return new Response($content);
     }
 }

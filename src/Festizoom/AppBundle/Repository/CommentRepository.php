@@ -1,5 +1,4 @@
 <?php
-
 namespace Festizoom\AppBundle\Repository;
 
 /**
@@ -15,15 +14,15 @@ class CommentRepository extends \Doctrine\ORM\EntityRepository
      * @return float
      */
     public function countNbPage($festiId) {
-        $qb = $this->createQueryBuilder('com');
-        $qb->select('COUNT(com)')
-           ->where('com.festival = :festiId')
-            ->setParameter('festiId', $festiId)
-            ->andWhere('com.valid=true');
-        $nbNews =
-            $qb->getQuery()
-                ->getSingleScalarResult();
-        return ceil($nbNews/10);
+        $qb = $this -> createQueryBuilder('com');
+        $qb -> select('COUNT(com)')
+            -> where('com.festival = :festiId')
+            -> setParameter('festiId', $festiId)
+            -> andWhere('com.valid=true');
+        $nbComments =
+            $qb -> getQuery()
+                -> getSingleScalarResult();
+        return ceil($nbComments/10);
     }
 
     /**
@@ -32,20 +31,26 @@ class CommentRepository extends \Doctrine\ORM\EntityRepository
      * @param $mp -> le nombre maximum s'entrées
      * @return array
      */
-    public function getLimit($fe, $mp, $festiId) {
-        $qb = $this->createQueryBuilder('com');
-            $qb->where('com.festival=:festiId')
-            ->setParameter('festiId', $festiId)
-            ->andWhere('com.valid=true')
-            ->orderBy('com.date', 'DESC')
-            ->setFirstResult($fe)
-            ->setMaxResults($mp);
-        return $qb->getQuery()
-            ->getResult();
+    private function getLimit($fe, $mp, $festiId) {
+        $qb = $this -> createQueryBuilder('com');
+            $qb -> where('com.festival=:festiId')
+                -> setParameter('festiId', $festiId)
+                -> andWhere('com.valid=true')
+                -> orderBy('com.date', 'DESC')
+                -> setFirstResult($fe)
+                -> setMaxResults($mp);
+        return $qb -> getQuery()
+                   -> getResult();
     }
 
+    /**
+     * Récupère les commentaires à partir du numéro de page et du festival
+     * @param $num
+     * @param $festivalId
+     * @return array
+     */
     public function getPageComments($num, $festivalId) {
         $firstEntry = ($num - 1) * 10;
-        return $this->getLimit($firstEntry, 10, $festivalId);
+        return $this -> getLimit($firstEntry, 10, $festivalId);
     }
 }

@@ -1,5 +1,4 @@
 <?php
-
 namespace Festizoom\AppBundle\Repository;
 
 /**
@@ -15,11 +14,11 @@ class NewsRepository extends \Doctrine\ORM\EntityRepository
      * @return array
      */
     public function find3Last() {
-        $qb = $this->createQueryBuilder('a');
-        $qb->orderBy('a.date', 'DESC')
-           ->setMaxResults(3);
-        return $qb->getQuery()
-                  ->getResult();
+        $qb = $this -> createQueryBuilder('news');
+        $qb -> orderBy('news.date', 'DESC')
+            -> setMaxResults(3);
+        return $qb -> getQuery()
+                   -> getResult();
     }
 
     /**
@@ -27,11 +26,11 @@ class NewsRepository extends \Doctrine\ORM\EntityRepository
      * @return float
      */
     public function countNbPage() {
-        $qb = $this->createQueryBuilder('a');
-        $qb->select('COUNT(a)');
+        $qb = $this->createQueryBuilder('news');
+        $qb->select('COUNT(news)');
         $nbNews =
-         $qb->getQuery()
-            ->getSingleScalarResult();
+             $qb -> getQuery()
+                 -> getSingleScalarResult();
         return ceil($nbNews/8);
     }
 
@@ -41,22 +40,22 @@ class NewsRepository extends \Doctrine\ORM\EntityRepository
      * @param $mp -> le nombre maximum s'entrées
      * @return array
      */
-    public function getLimit($fe, $mp) {
-        $qb = $this->createQueryBuilder('a');
-        $qb->orderBy('a.date', 'DESC')
-           ->setFirstResult($fe)
-           ->setMaxResults($mp);
-        return $qb->getQuery()
-                  ->getResult();
+    private function getLimit($fe, $mp) {
+        $qb = $this->createQueryBuilder('news');
+        $qb -> orderBy('news.date', 'DESC')
+            -> setFirstResult($fe)
+            -> setMaxResults($mp);
+        return $qb -> getQuery()
+                   -> getResult();
     }
 
     /**
-     * Récupère la liste des news correspondant à une page de pagination
+     * Récupère les news à partir du numéro de page
      * @param $num
      * @return mixed
      */
     public function getPageNews($num) {
         $firstEntry = ($num - 1) * 8;
-        return $this->getLimit($firstEntry, 8);
+        return $this -> getLimit($firstEntry, 8);
     }
 }

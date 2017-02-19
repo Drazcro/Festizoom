@@ -10,12 +10,21 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 class NewsController extends Controller
 {
     /**
-     * Recupère la news et l'affiche sur la page news.html.twig
+     * Recupère la news et l'affiche
      * @ParamConverter("news", options={"mapping": {"title": "utitle"}})
      */
     public function newsAction(News $news) {
-        $content = $this->get('templating')
-                        ->render('FestizoomAppBundle:News:news.html.twig', ['title' => 'Dernières nouvelles', 'news' => $news, 'page' => 'news']);
+        $content = $this -> get('templating')
+                         -> render('FestizoomAppBundle:News:news.html.twig',
+                                    [
+                                        //Titre de la page
+                                        'title' => 'Dernières nouvelles',
+                                        //News à afficher
+                                        'news' => $news,
+                                        //Nom pour le menu
+                                        'page' => 'news'
+                                    ]
+                                  );
         return new Response($content);
     }
 
@@ -25,46 +34,54 @@ class NewsController extends Controller
      * @return Response
      */
     public function allNewsAction() {
-        $newR = $this->getDoctrine()
-                     ->getManager()
-                     ->getRepository('FestizoomAppBundle:News');
+        $newR = $this -> getDoctrine() -> getManager() -> getRepository('FestizoomAppBundle:News');
         //Compte le nombre de pages necessaires à la pagination
         $nbPagPage = $newR->countNbPage();
         //Récupère les news correspondant à la page num
         $news = $this->getPageNews(1);
-        $content = $this->get('templating')
-                        ->render('FestizoomAppBundle:News:news.html.twig',
-                                 ['title' => 'Dernières nouvelles',
-                                  //Liste des news
-                                  'news' => $news,
-                                  //Nombre de pages necessaires à la pagination
-                                  'nbPagPage' => $nbPagPage,
-                                  //Page courante pour la pagination
-                                  'activePage' => 1,
-                                  //Nom de la page pour le menu
-                                  'page' => 'news']);
+        $content = $this -> get('templating')
+                         -> render('FestizoomAppBundle:News:news.html.twig',
+                                    [
+                                        //Titre de la page
+                                        'title' => 'Dernières nouvelles',
+                                        //Liste des news
+                                        'news' => $news,
+                                        //Nombre de pages necessaires à la pagination
+                                        'nbPagPage' => $nbPagPage,
+                                        //Page courante pour la pagination
+                                        'activePage' => 1,
+                                        //Nom de la page pour le menu
+                                        'page' => 'news'
+                                    ]
+                                   );
         return new Response($content);
     }
 
+    /**
+     * Récupère les news de la page PagNum
+     * @Method({"POST"})
+     * @param $pagNum
+     * @return Response
+     */
     public function newsPageAction($pagNum) {
-        $newR = $this->getDoctrine()
-            ->getManager()
-            ->getRepository('FestizoomAppBundle:News');
+        $newR = $this -> getDoctrine() -> getManager() -> getRepository('FestizoomAppBundle:News');
         //Compte le nombre de pages necessaires à la pagination
-        $nbPagPage = $newR->countNbPage();
+        $nbPagPage = $newR -> countNbPage();
         //Récupère les news correspondant à la page num
-        $news = $newR->getPageNews($pagNum);
-        $content = $this->get('templating')
-            ->render('FestizoomAppBundle:News:newsContainer.html.twig',
-                ['title' => 'Dernières nouvelles',
-                    //Liste des news
-                    'news' => $news,
-                    //Nombre de pages necessaires à la pagination
-                    'nbPagPage' => $nbPagPage,
-                    //Page courante pour la pagination
-                    'activePage' => $pagNum,
-                    //Nom de la page pour le menu
-                    'page' => 'news']);
+        $news = $newR -> getPageNews($pagNum);
+        $content = $this -> get('templating')
+                         -> render('FestizoomAppBundle:News:newsContainer.html.twig',
+                                    [
+                                        //Titre de la page
+                                        'title' => 'Dernières nouvelles',
+                                        //Liste des news
+                                        'news' => $news,
+                                        //Nombre de pages necessaires à la pagination
+                                        'nbPagPage' => $nbPagPage,
+                                        //Page courante pour la pagination
+                                        'activePage' => $pagNum
+                                    ]
+                                  );
         return new Response($content);
     }
 }

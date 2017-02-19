@@ -1,5 +1,4 @@
 <?php
-
 namespace Festizoom\AppBundle\Admin;
 
 use Sonata\AdminBundle\Admin\AbstractAdmin;
@@ -13,49 +12,61 @@ use Symfony\Component\Form\Extension\Core\Type\UrlType;
 
 class FestivalAdmin extends AbstractAdmin
 {
+    /**
+     * Formulaire de modification/ajout de festivals
+     * @param FormMapper $fm
+     */
     protected function configureFormFields(FormMapper $fm)
     {
-        $fm->add('name', TextType::class)
-            ->add('uname', TextType::class)
-            ->add('capacity', IntegerType::class)
-            ->add('wsurl', UrlType::class)
-            ->add('furl', UrlType::class)
-            ->add('aurl', TextType::class)
-            ->add('location', TextType::class)
-            ->add('kind', TextType::class)
-            ->add('type', ChoiceType::class, array(
+        $fm -> add('name', TextType::class)
+            -> add('uname', TextType::class)
+            -> add('capacity', IntegerType::class)
+            -> add('wsurl', UrlType::class)
+            -> add('furl', UrlType::class)
+            -> add('aurl', TextType::class)
+            -> add('location', TextType::class)
+            -> add('kind', TextType::class)
+            -> add('type', ChoiceType::class, array(
                 'choices'  => array(
                     'Indoor' => 'indoor',
                     'Outdoor' => 'outdoor'
                     )
                 )
             )
-            ->add('period', ChoiceType::class, array(
+            -> add('period', ChoiceType::class, array(
                     'choices'  => array(
                         'Singleday' => 'singleday',
                         'Multiday' => 'multiday'
                     )
                 )
             )
-        ->add('minage', ChoiceType::class, array(
-                'choices'  => array(
-                    '16+' => '16',
-                    '18+' => '18'
+            -> add('minage', ChoiceType::class, array(
+                    'choices'  => array(
+                        '16+' => '16',
+                        '18+' => '18'
+                    )
                 )
-            )
-        );
+            );
 
     }
 
+    /**
+     * Filtres de festivals
+     * @param DatagridMapper $datagridMapper
+     */
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
-        $datagridMapper->add('id')
-                       ->add('name');
+        $datagridMapper -> add('id')
+                        -> add('name');
     }
 
+    /**
+     * Affichages de festivals
+     * @param ListMapper $listMapper
+     */
     protected function configureListFields(ListMapper $listMapper)
     {
-        $listMapper->addIdentifier('id')
-            ->addIdentifier('name');
+        $listMapper -> addIdentifier('id')
+                    -> addIdentifier('name');
     }
 }

@@ -1,5 +1,4 @@
 <?php
-
 namespace Festizoom\AppBundle\Repository;
 
 /**
@@ -15,11 +14,11 @@ class FestivalRepository extends \Doctrine\ORM\EntityRepository
      * @return float
      */
     public function countNbPage() {
-        $qb = $this->createQueryBuilder('a');
-        $qb->select('COUNT(a)');
+        $qb = $this -> createQueryBuilder('fest');
+        $qb -> select('COUNT(fest)');
         $nbFestivals =
-            $qb->getQuery()
-                ->getSingleScalarResult();
+            $qb -> getQuery()
+                -> getSingleScalarResult();
         return ceil($nbFestivals/20);
     }
 
@@ -29,16 +28,21 @@ class FestivalRepository extends \Doctrine\ORM\EntityRepository
      * @param $mp -> le nombre maximum s'entrées
      * @return array
      */
-    public function getLimit($fe, $mp) {
+    private function getLimit($fe, $mp) {
         $qb = $this->createQueryBuilder('a');
-        $qb->setFirstResult($fe)
-            ->setMaxResults($mp);
-        return $qb->getQuery()
-            ->getResult();
+        $qb -> setFirstResult($fe)
+            -> setMaxResults($mp);
+        return $qb -> getQuery()
+                   -> getResult();
     }
 
+    /**
+     * Récupère les festivals à partir du numéro de page
+     * @param $num
+     * @return array
+     */
     public function getPageFestivals($num) {
         $firstEntry = ($num - 1) * 20;
-        return $this->getLimit($firstEntry, 20);
+        return $this -> getLimit($firstEntry, 20);
     }
 }
