@@ -37,9 +37,9 @@ class NewsController extends Controller
     public function allNewsAction() {
         $newR = $this -> getDoctrine() -> getManager() -> getRepository('FestizoomAppBundle:News');
         //Compte le nombre de pages necessaires à la pagination
-        $nbPagPage = $newR->countNbPage();
+        $nbPagPage = $newR -> countNbPage();
         //Récupère les news correspondant à la page num
-        $news = $this->getPageNews(1);
+        $news = $newR -> getPageNews(1);
         $content = $this -> get('templating')
                          -> render('FestizoomAppBundle:News:news.html.twig',
                                     [
