@@ -3,6 +3,9 @@
 namespace Festizoom\AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Festizoom\AppBundle\Entity\Video;
+use Festizoom\AppBundle\Entity\Edition;
+use Festizoom\AppBundle\Entity\Comment;
 
 /**
  * Festival
