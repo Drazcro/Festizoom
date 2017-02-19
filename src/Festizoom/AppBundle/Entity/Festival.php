@@ -11,7 +11,7 @@ use Festizoom\AppBundle\Entity\Comment;
  * Festival
  *
  * @ORM\Table(name="festival")
- * @ORM\Entity(repositoryClass="Festizoom\AppBundle\Repository\FestivalRepository")
+ * @ORM\Entity(repositoryClass="\Festizoom\AppBundle\Repository\FestivalRepository")
  */
 class Festival
 {
@@ -35,7 +35,7 @@ class Festival
      private $comments;
 
     /**
-     * @ORM\OneToMany(targetEntity="Video", mappedBy="festival")
+     * @ORM\OneToMany(targetEntity="\Festizoom\AppBundle\Entity\Video", mappedBy="festival")
      */
     private $videos;
 
