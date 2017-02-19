@@ -27,10 +27,14 @@ class Festival
      private $editions;
 
     /**
-     * @ORM\OneToMany(targetEntity="Festizoom\AppBundle\Entity\Edition", mappedBy="festival")
+     * @ORM\OneToMany(targetEntity="Festizoom\AppBundle\Entity\Comment", mappedBy="festival")
      */
      private $comments;
 
+    /**
+     * @ORM\OneToMany(targetEntity="Festizoom\AppBundle\Entity\Video", mappedBy="festival")
+     */
+    private $videos;
 
     /**
      * @var string
@@ -422,5 +426,43 @@ class Festival
     public function getEditions()
     {
         return $this->editions;
+    }
+
+    /**
+     * Add comment
+     *
+     * @param \Festizoom\AppBundle\Entity\Edition $comment
+     *
+     * @return Festival
+     */
+    public function addComment(\Festizoom\AppBundle\Entity\Edition $comment)
+    {
+        $this->comments[] = $comment;
+
+        return $this;
+    }
+
+    /**
+     * Remove comment
+     *
+     * @param \Festizoom\AppBundle\Entity\Edition $comment
+     */
+    public function removeComment(\Festizoom\AppBundle\Entity\Edition $comment)
+    {
+        $this->comments->removeElement($comment);
+    }
+
+    /**
+     * Get comments
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getComments()
+    {
+        return $this->comments;
+    }
+
+    public function __toString() {
+        return $this->name;
     }
 }

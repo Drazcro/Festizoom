@@ -55,6 +55,9 @@ class Comment
      */
     private $valid;
 
+    public function __construct() {
+        $this->date = new \DateTime();
+    }
 
     /**
      * Get id
@@ -160,5 +163,29 @@ class Comment
     public function getValid()
     {
         return $this->valid;
+    }
+
+    /**
+     * Set festival
+     *
+     * @param \Festizoom\AppBundle\Entity\Festival $festival
+     *
+     * @return Comment
+     */
+    public function setFestival(\Festizoom\AppBundle\Entity\Festival $festival)
+    {
+        $this->festival = $festival;
+
+        return $this;
+    }
+
+    /**
+     * Get festival
+     *
+     * @return \Festizoom\AppBundle\Entity\Festival
+     */
+    public function getFestival()
+    {
+        return $this->festival;
     }
 }

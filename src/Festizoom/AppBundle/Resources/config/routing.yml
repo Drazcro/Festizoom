@@ -18,11 +18,20 @@ ranking:
 
 #Route liste de toutes les news
 allNews:
-    path:     /news/page/{pagNum}
+    path:     /news
     defaults:
         _controller: FestizoomAppBundle:News:allNews
+
+#Route pour récupérer les news d'une pagination
+getPageNews:
+    path:     /news/page/{pagNum}
+    defaults:
+        _controller: FestizoomAppBundle:News:NewsPage
     requirements:
+        name: ([a-z0-9\-])+
         pagNum: ^[1-9](\d)*
+    options:
+        expose: true
 
 #Route d'une news
 news:
@@ -31,6 +40,11 @@ news:
         _controller: FestizoomAppBundle:News:news
     requirements:
         title: ([a-z0-9\-])+
+
+allFestival:
+    path:    /festival
+    defaults:
+        _controller: FestizoomAppBundle:Festival:allFestivals
 
 #Route d'un festival
 festival:
@@ -41,7 +55,28 @@ festival:
         name: ([a-z0-9\-])+
 
 #Récupérer les commentaires d'un festival associé par la page
-festival_com:
+getPageFestivals:
+    path:   /festival/page/{pagNum}
+    defaults:
+        _controller: FestizoomAppBundle:Festival:festivalPage
+    requirements:
+        pagNum: ^[1-9](\d)*
+    options:
+        expose: true
+
+#Récupérer les commentaires d'un festival associé par la page
+getPageVideo:
+    path:   /festival/{name}/page/{pagNum}
+    defaults:
+        _controller: FestizoomAppBundle:Video:videoPage
+    requirements:
+        name: ([a-z0-9\-])+
+        pagNum: ^[1-9](\d)*
+    options:
+        expose: true
+
+#Récupérer les commentaires d'un festival associé par la page
+getPageCom:
     path:   /festival/{name}/page/{pagNum}
     defaults:
         _controller: FestizoomAppBundle:Comment:commentPage

@@ -10,11 +10,12 @@
                 </div>
             </div>
             {% if(news|length > 0) %}
+            <div class="newsContainer">
                 <div class="col s12">
-                   <ul class="collapsible popout" data-collapsible="accordion">
-                    {% for n in news %}
-                        <li>
-                             <div class="collapsible-header">
+                    <ul class="collapsible popout" data-collapsible="accordion">
+                        {% for n in news %}
+                            <li>
+                                <div class="collapsible-header">
                                     <div class="row">
                                         <div class="col s3">
                                             <span>Publied the {{ n.date|date('m-d-Y') }}</span>
@@ -23,16 +24,16 @@
                                             <h3>{{ n.title }}</h3>
                                         </div>
                                     </div>
-                             </div>
-                             <div class="collapsible-body">
-                                <p class="truncate">{{ n.body }}</p>
-                                <div class="center-align">
-                                    <a class="waves-effect waves-light btn black-text" href="{{ path('news', { 'title': n.utitle}) }}">Read more</a>
                                 </div>
-                             </div>
-                        </li>
-                    {% endfor %}
-                   </ul>
+                                <div class="collapsible-body">
+                                    <p class="truncate">{{ n.body }}</p>
+                                    <div class="center-align">
+                                        <a class="waves-effect waves-light btn black-text" href="{{ path('news', { 'title': n.utitle}) }}">Read more</a>
+                                    </div>
+                                </div>
+                            </li>
+                        {% endfor %}
+                    </ul>
                 </div>
                 <div class="row">
                     <div class="col s12">
@@ -45,18 +46,18 @@
                                 </li>
                             {% else %}
                                 <li class="waves-effect">
-                                    <a href="{{ path('allNews', { 'pagNum': activePage-1 }) }}"><i class="material-icons">chevron_left</i>
+                                    <a class="pag2Link" href="{{ activePage-1 }}"><i class="material-icons">chevron_left</i>
                                     </a>
                                 </li>
                             {% endif %}
                             {% for n in 1..nbPagPage %}
                                 {% if(n == activePage) %}
                                     <li class="active">
-                                        <a href="{{ path('allNews', { 'pagNum': n }) }}">{{ n }}</a>
+                                        <a href="{{ n }}">{{ n }}</a>
                                     </li>
                                 {% else %}
                                     <li class="waves-effect">
-                                        <a class="black-text" href="{{ path('allNews', { 'pagNum': n }) }}">{{ n }}</a>
+                                        <a  class="pag2Link" class="black-text" href="{{  n }}">{{ n }}</a>
                                     </li>
                                 {% endif %}
                             {%  endfor %}
@@ -68,7 +69,7 @@
                                 </li>
                             {% else %}
                                 <li class="waves-effect">
-                                    <a href="{{ path('allNews', { 'pagNum': activePage+1 }) }}">
+                                    <a class="pag2Link" href="{{  activePage+1 }}">
                                         <i class="material-icons">chevron_right</i>
                                     </a>
                                 </li>
@@ -76,11 +77,13 @@
                         </ul>
                     </div>
                 </div>
-            {% else %}
-                <div class="col s12">
-                    <p class="center-align">Aucune nouvelles.</p>
-                </div>
-            {% endif %}
+            </div>
+        </div>
+        {% else %}
+            <div class="col s12">
+                <p class="center-align">Aucune nouvelles.</p>
+            </div>
+        {% endif %}
         {% else %}
             <div class="row">
                 <div class="banner1 col s11">
@@ -89,7 +92,7 @@
             </div>
             <p>Publié le {{ news.date|date('d-m-Y') }}<br /><br />{{ news.body|raw }}</p>
             <div class="center-align">
-                <a class="waves-effect waves-light btn black-text" href="{{ path('allNews', { 'pagNum': 1})  }}">Retour</a>
+                <a class="waves-effect waves-light btn black-text" href="{{ path('allNews') }}">Retour</a>
             </div>
         {% endif  %}
 {% endblock %}

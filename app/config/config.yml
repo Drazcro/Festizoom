@@ -79,7 +79,7 @@ assetic:
       formatter: 'Leafo\ScssPhp\Formatter\Compressed'
 
 fos_js_routing:
-    routes_to_expose: [festival_com]
+    routes_to_expose: [getPageCom, getPageNews, getPageFestivals, getPageVideo]
 
 sonata_block:
     default_contexts: [cms]
@@ -108,3 +108,8 @@ services:
             arguments: [~, Festizoom\AppBundle\Entity\Comment, ~]
             tags:
                 - { name: sonata.admin, manager_type: orm, label: Comment }
+    festival.video:
+                class: Festizoom\AppBundle\Admin\VideoAdmin
+                arguments: [~, Festizoom\AppBundle\Entity\Video, ~]
+                tags:
+                    - { name: sonata.admin, manager_type: orm, label: Video }

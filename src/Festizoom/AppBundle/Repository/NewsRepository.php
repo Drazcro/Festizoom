@@ -49,4 +49,14 @@ class NewsRepository extends \Doctrine\ORM\EntityRepository
         return $qb->getQuery()
                   ->getResult();
     }
+
+    /**
+     * Récupère la liste des news correspondant à une page de pagination
+     * @param $num
+     * @return mixed
+     */
+    public function getPageNews($num) {
+        $firstEntry = ($num - 1) * 8;
+        return $this->getLimit($firstEntry, 8);
+    }
 }

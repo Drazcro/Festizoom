@@ -32,6 +32,11 @@ class Festival
      private $comments;
 
     /**
+     * @ORM\OneToMany(targetEntity="Festizoom\AppBundle\Entity\Video", mappedBy="festival")
+     */
+    private $videos;
+
+    /**
      * @var string
      *
      * @ORM\Column(name="name", type="string", length=255, unique=true)
@@ -459,5 +464,39 @@ class Festival
 
     public function __toString() {
         return $this->name;
+    }
+
+    /**
+     * Add video
+     *
+     * @param \Festizoom\AppBundle\Entity\Video $video
+     *
+     * @return Festival
+     */
+    public function addVideo(\Festizoom\AppBundle\Entity\Video $video)
+    {
+        $this->videos[] = $video;
+
+        return $this;
+    }
+
+    /**
+     * Remove video
+     *
+     * @param \Festizoom\AppBundle\Entity\Video $video
+     */
+    public function removeVideo(\Festizoom\AppBundle\Entity\Video $video)
+    {
+        $this->videos->removeElement($video);
+    }
+
+    /**
+     * Get videos
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getVideos()
+    {
+        return $this->videos;
     }
 }

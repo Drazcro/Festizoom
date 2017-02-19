@@ -11,15 +11,15 @@
             {% endif %}
                 <li><a class="black-text" href="badges.html">Grade festival</a></li>
             {% if (page == 'festival') %}
-                <li class="active"><a class="black-text" href="badges.html">Festivals</a></li>
+                <li class="active"><a class="black-text" href="{{ path('allFestival') }}">Festivals</a></li>
             {% else %}
-                <li><a class="black-text" href="badges.html">Festivals</a></li>
+                <li><a class="black-text" href="{{ path('allFestival') }}">Festivals</a></li>
             {% endif %}
             <li><a class="black-text" href="collapsible.html">Ranking</a></li>
             {% if (page == 'news') %}
-                <li class="active"><a class="black-text" href="{{ path('allNews', {'pagNum': 1}) }}">News</a></li>
+                <li class="active"><a class="black-text" href="{{ path('allNews') }}">News</a></li>
             {% else %}
-                <li><a class="black-text" href="{{ path('allNews', {'pagNum': 1}) }}">News</a></li>
+                <li><a class="black-text" href="{{ path('allNews') }}">News</a></li>
             {% endif %}
         </ul>
         <ul class="side-nav" id="mobile-demo">

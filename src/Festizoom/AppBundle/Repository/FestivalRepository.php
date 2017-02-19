@@ -10,4 +10,35 @@ namespace Festizoom\AppBundle\Repository;
  */
 class FestivalRepository extends \Doctrine\ORM\EntityRepository
 {
+    /**
+     * Calcule le nombre de pages necessaire à une pagination
+     * @return float
+     */
+    public function countNbPage() {
+        $qb = $this->createQueryBuilder('a');
+        $qb->select('COUNT(a)');
+        $nbFestivals =
+            $qb->getQuery()
+                ->getSingleScalarResult();
+        return ceil($nbFestivals/20);
+    }
+
+    /**
+     * Récupère les news de fe à mp
+     * @param $fe -> la première entrée
+     * @param $mp -> le nombre maximum s'entrées
+     * @return array
+     */
+    public function getLimit($fe, $mp) {
+        $qb = $this->createQueryBuilder('a');
+        $qb->setFirstResult($fe)
+            ->setMaxResults($mp);
+        return $qb->getQuery()
+            ->getResult();
+    }
+
+    public function getPageFestivals($num) {
+        $firstEntry = ($num - 1) * 20;
+        return $this->getLimit($firstEntry, 20);
+    }
 }

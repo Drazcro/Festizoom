@@ -17,24 +17,50 @@ class FestivalController extends Controller
     public function festivalAction(Festival $festival) {
         $editions = $festival->getEditions();
         $commentR = $this->getDoctrine()->getManager()->getRepository('FestizoomAppBundle:Comment');
+        $videoR = $this->getDoctrine()->getManager()->getRepository('FestizoomAppBundle:Video');
         //Compte le nombre de pages necessaires à la pagination
-        $nbPagPage = $commentR->countNbPage($festival->getId());
+        $nbComPagPage = $commentR->countNbPage($festival->getId());
+        $nbVidPagPage = $videoR->countNbPage($festival->getId());
         //Récupère les news correspondant à la page num
-        $comments = $this->getPageComments(1, $festival->getId());
+        $comments = $commentR->getPageComments(1, $festival->getId());
+        $videos = $videoR->getPageVideos(1, $festival->getId());
         $content = $this->get('templating')
             ->render('FestizoomAppBundle:Festival:festival.html.twig', ['title' => 'Festival',
                                                                         'festival' => $festival,
                                                                         'editions' => $editions,
-                                                                        'nbPagPage' => $nbPagPage,
-                                                                        'activePage' => 1,
+                                                                        'nbComPagPage' => $nbComPagPage,
+                                                                        'activeComPage' => 1,
                                                                         'comments' => $comments,
+                                                                        'nbVidPagPage' => $nbVidPagPage,
+                                                                        'activeVidPage' => 1,
+                                                                        'videos' => $videos,
                                                                         'page' => 'festival']);
         return new Response($content);
     }
 
-    public function getPageComments($num, $festivalId) {
-        $commentR = $this->getDoctrine()->getManager()->getRepository('FestizoomAppBundle:Comment');
-        $firstEntry = ($num - 1) * 10;
-        return $commentR->getLimit($firstEntry, 10, $festivalId);
+    public function allFestivalsAction() {
+        $festivalR = $this->getDoctrine()->getManager()->getRepository('FestizoomAppBundle:Festival');
+        $festivals = $festivalR->getPageFestivals(1);
+        $nbPagPage = $festivalR->countNbPage();
+        $content = $this->get('templating')
+            ->render('FestizoomAppBundle:Festival:festival.html.twig', ['title' => 'Festival',
+                'festivals' => $festivals,
+                'nbPagPage' => $nbPagPage,
+                'activePage' => 1,
+                'page' => 'festival']);
+        return new Response($content);
+    }
+
+    public function festivalPageAction($pagNum) {
+        $festivalR = $this->getDoctrine()->getManager()->getRepository('FestizoomAppBundle:Festival');
+        $festivals = $festivalR->getPageFestivals($pagNum);
+        $nbPagPage = $festivalR->countNbPage();
+        $content = $this->get('templating')
+            ->render('FestizoomAppBundle:Festival:festivalCommentContainer.html.twig', ['title' => 'Festival',
+                'festivals' => $festivals,
+                'nbPagPage' => $nbPagPage,
+                'activePage' => $pagNum,
+                'page' => 'festival']);
+        return new Response($content);
     }
 }

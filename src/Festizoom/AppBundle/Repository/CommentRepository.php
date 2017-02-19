@@ -43,4 +43,9 @@ class CommentRepository extends \Doctrine\ORM\EntityRepository
         return $qb->getQuery()
             ->getResult();
     }
+
+    public function getPageComments($num, $festivalId) {
+        $firstEntry = ($num - 1) * 10;
+        return $this->getLimit($firstEntry, 10, $festivalId);
+    }
 }
