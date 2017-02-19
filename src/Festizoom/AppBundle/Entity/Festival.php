@@ -400,7 +400,7 @@ class Festival
     /**
      * Add edition
      *
-     * @param \Festizoom\AppBundle\Entity\Festival $edition
+     * @param Edition $edition
      *
      * @return Festival
      */
@@ -414,7 +414,7 @@ class Festival
     /**
      * Remove edition
      *
-     * @param \Festizoom\AppBundle\Entity\Festival $edition
+     * @param Edition $edition
      */
     public function removeEdition(Edition $edition)
     {
@@ -434,7 +434,7 @@ class Festival
     /**
      * Add comment
      *
-     * @param \Festizoom\AppBundle\Entity\Edition $comment
+     * @param Comment $comment
      *
      * @return Festival
      */
@@ -448,7 +448,7 @@ class Festival
     /**
      * Remove comment
      *
-     * @param \Festizoom\AppBundle\Entity\Edition $comment
+     * @param Comment $comment
      */
     public function removeComment(Comment $comment)
     {
@@ -472,7 +472,7 @@ class Festival
     /**
      * Add video
      *
-     * @param \Festizoom\AppBundle\Entity\Video $video
+     * @param Video $video
      *
      * @return Festival
      */
@@ -486,7 +486,7 @@ class Festival
     /**
      * Remove video
      *
-     * @param \Festizoom\AppBundle\Entity\Video $video
+     * @param Video $video
      */
     public function removeVideo(Video $video)
     {
