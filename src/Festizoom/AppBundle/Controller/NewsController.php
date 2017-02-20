@@ -12,6 +12,7 @@ class NewsController extends Controller
 {
     /**
      * Recupère la news et l'affiche
+     * @Method({"GET"})
      * @ParamConverter("news", options={"mapping": {"title": "utitle"}})
      */
     public function newsAction(News $news) {
@@ -32,6 +33,7 @@ class NewsController extends Controller
     /**
      * Récupère la liste des news et les affiche avec une pagination
      * @param int $pagNum -> Numéro de la page
+     * @Method({"GET"})
      * @return Response
      */
     public function allNewsAction() {

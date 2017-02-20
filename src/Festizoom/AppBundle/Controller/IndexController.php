@@ -8,6 +8,7 @@ class IndexController extends Controller
 {
     /**
      * Affiche la page d'accueil
+     * @Method({"GET"})
      * @return Response
      */
     public function indexAction() {

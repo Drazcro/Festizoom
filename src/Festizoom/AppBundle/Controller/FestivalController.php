@@ -11,6 +11,7 @@ class FestivalController extends Controller
 {
     /**
      * Recupère le festival et l'affiche
+     * @Method({"GET"})
      * @ParamConverter("festival", options={"mapping": {"name": "uname"}})
      */
     public function festivalAction(Festival $festival) {
@@ -56,6 +57,7 @@ class FestivalController extends Controller
 
     /**
      * Récupère les festivals et les affiche avec une pagination
+     * @Method({"GET"})
      * @return Response
      */
     public function allFestivalsAction() {
