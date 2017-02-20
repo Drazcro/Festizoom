@@ -14,7 +14,7 @@ allNews:
 
 #Route pour récupérer les news d'une pagination
 getPageNews:
-    path:     /news/page/{pagNum}
+    path:     /news/ajax/page/{pagNum}
     defaults:
         _controller: FestizoomAppBundle:News:NewsPage
     requirements:
@@ -22,7 +22,8 @@ getPageNews:
         pagNum: ^[1-9](\d)*
     options:
         expose: true
-    methods:  [POST]
+    methods:  [GET]
+    condition: "request.isXmlHttpRequest()"
 
 #Route d'une news
 news:
@@ -57,11 +58,12 @@ getPageFestivals:
         pagNum: ^[1-9](\d)*
     options:
         expose: true
-    methods:  [POST]
+    methods:  [GET]
+    condition: "request.isXmlHttpRequest()"
 
 #Récupérer les commentaires d'un festival associé par la page
 getPageVideo:
-    path:   /festival/{name}/video/page/{pagNum}
+    path:   /festival/ajax/{name}/video/page/{pagNum}
     defaults:
         _controller: FestizoomAppBundle:Video:videoPage
     requirements:
@@ -69,11 +71,12 @@ getPageVideo:
         pagNum: ^[1-9](\d)*
     options:
         expose: true
-    methods:  [POST]
+    methods:  [GET]
+    condition: "request.isXmlHttpRequest()"
 
 #Récupérer les commentaires d'un festival associé par la page
 getPageCom:
-    path:   /festival/{name}/comment/page/{pagNum}
+    path:   /festival/ajax/{name}/comment/page/{pagNum}
     defaults:
         _controller: FestizoomAppBundle:Comment:commentPage
     requirements:
@@ -81,7 +84,8 @@ getPageCom:
         pagNum: ^[1-9](\d)*
     options:
         expose: true
-    methods:  [POST]
+    methods:  [GET]
+    condition: "request.isXmlHttpRequest()"
 
 #Routes d'administration
 _sonata_admin:

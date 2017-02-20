@@ -22,3 +22,8 @@ security:
 
             # form_login: ~
             # http://symfony.com/doc/current/cookbook/security/form_login_setup.html
+
+    access_control:
+        #ajax_security:
+           # path: ^/festival/ajax/
+            #allow_if: "'127.0.0.1' == request.getClientIp() or has_role('ROLE_ADMIN')"
