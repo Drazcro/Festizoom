@@ -3,12 +3,14 @@ index:
     path:     /accueil
     defaults:
         _controller: FestizoomAppBundle:Index:index
+    methods:  [GET]
 
 #Route liste de toutes les news
 allNews:
     path:     /news
     defaults:
         _controller: FestizoomAppBundle:News:allNews
+    methods:  [GET]
 
 #Route pour récupérer les news d'une pagination
 getPageNews:
@@ -20,6 +22,7 @@ getPageNews:
         pagNum: ^[1-9](\d)*
     options:
         expose: true
+    methods:  [POST]
 
 #Route d'une news
 news:
@@ -28,11 +31,13 @@ news:
         _controller: FestizoomAppBundle:News:news
     requirements:
         title: ([a-z0-9\-])+
+    methods:  [GET]
 
 allFestival:
     path:    /festival
     defaults:
         _controller: FestizoomAppBundle:Festival:allFestivals
+    methods:  [GET]
 
 #Route d'un festival
 festival:
@@ -41,6 +46,7 @@ festival:
         _controller: FestizoomAppBundle:Festival:festival
     requirements:
         name: ([a-z0-9\-])+
+    methods:  [GET]
 
 #Récupérer les commentaires d'un festival associé par la page
 getPageFestivals:
@@ -51,6 +57,7 @@ getPageFestivals:
         pagNum: ^[1-9](\d)*
     options:
         expose: true
+    methods:  [POST]
 
 #Récupérer les commentaires d'un festival associé par la page
 getPageVideo:
@@ -62,6 +69,7 @@ getPageVideo:
         pagNum: ^[1-9](\d)*
     options:
         expose: true
+    methods:  [POST]
 
 #Récupérer les commentaires d'un festival associé par la page
 getPageCom:
@@ -73,6 +81,7 @@ getPageCom:
         pagNum: ^[1-9](\d)*
     options:
         expose: true
+    methods:  [POST]
 
 #Routes d'administration
 _sonata_admin:
