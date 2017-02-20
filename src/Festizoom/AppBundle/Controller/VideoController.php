@@ -21,7 +21,7 @@ class VideoController extends Controller
         //Récupère les vidéos correspondant à la page num
         $videos = $videoR -> getPageVideos($pagNum, $festival -> getId());
         $content = $this -> get('templating')
-                         -> render('FestizoomAppBundle:Video:videoContainer.html.twig',
+                         -> render('FestizoomAppBundle:Video:ajax/videoContainer.html.twig',
                                     [
                                         //Titre de la page
                                         'title' => 'Festival',

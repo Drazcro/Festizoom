@@ -21,7 +21,7 @@ class CommentController extends Controller
         //Récupère les commentaires correspondant à la page pagNum
         $comments = $commentR -> getPageComments($pagNum, $festival->getId());
         $content = $this -> get('templating')
-                         -> render('FestizoomAppBundle:Comment:commentContainer.html.twig',
+                         -> render('FestizoomAppBundle:Comment:ajax/commentContainer.html.twig',
                                     [
                                         //Titre de la page
                                         'title' => 'Festival',

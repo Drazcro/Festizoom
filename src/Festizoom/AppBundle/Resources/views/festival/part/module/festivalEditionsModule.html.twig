@@ -1,0 +1,99 @@
+<div class="row">
+    <div class="banner2 col s8">
+        <h2 class="black-text">{{ festival.name }} editions</h2>
+    </div>
+</div>
+{% if editions|length > 0 %}
+    <div class="row">
+        <div class="col s12">
+            <ul class="collapsible popout" data-collapsible="accordion">
+                {% for i, n in editions %}
+                    <li>
+                        <div class="collapsible-header">
+                            <div class="row">
+                                <div class="col s12">
+                                    <h3 class="black-text">Edition {{ festival.name }} | {{ n.year }}</h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="collapsible-body">
+                            <div class="row">
+                                <div class="col s12">
+                                    <ul class="collection">
+                                        <li class="collection-item">
+                                            <div class="row">
+                                                <div class="col s5">
+                                                    <h4><i class="material-icons">event_available</i>Oppening day of the edition</h4>
+                                                </div>
+                                                <div class="col s7">
+                                                    {{ n.bdate|date('m-d-Y') }}
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="collection-item">
+                                            <div class="row">
+                                                <div class="col s5">
+                                                    <h4><i class="material-icons">event</i>Closing day of the edition</h4>
+                                                </div>
+                                                <div class="col s7">
+                                                    {{ n.edate|date('m-d-Y') }}
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="collection-item">
+                                            <div class="row">
+                                                <div class="col s5">
+                                                    <h4><i class="material-icons">person</i>Line-up</h4>
+                                                </div>
+                                                <div class="col s7">
+                                                    {{ n.lineup }}
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="collection-item">
+                                            <div class="row">
+                                                {% if(n.aurl) %}
+                                                    <div class="col s2">
+                                                        <h4><i class="material-icons">camera_alt</i>Aftermovie</h4>
+                                                    </div>
+                                                    <div class="col s10">
+                                                        <div class="video-container">
+                                                            <iframe src="{{ n.aurl }}" frameborder="0" allowfullscreen></iframe>
+                                                        </div>
+                                                    </div>
+                                                {% else %}
+                                                    <div class="col s5">
+                                                        <h4><i class="material-icons">camera_alt</i>Aftermovie</h4>
+                                                    </div>
+                                                    <div class="col s7">
+                                                        Not aftermovie yet.
+                                                    </div>
+                                                {% endif %}
+                                            </div>
+                                        </li>
+                                        <li class="collection-item">
+                                            <div class="row">
+                                                <div class="col s2">
+                                                    <h4><i class="material-icons">timeline</i>Notation</h4>
+                                                </div>
+                                                <div class="col s10">
+
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+{% else %}
+    <div class="row">
+        <div class="col s12">
+            <p class="center-align">No editions added.</p>
+        </div>
+    </div>
+{% endif %}

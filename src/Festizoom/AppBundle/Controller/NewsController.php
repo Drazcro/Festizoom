@@ -71,7 +71,7 @@ class NewsController extends Controller
         //Récupère les news correspondant à la page num
         $news = $newR -> getPageNews($pagNum);
         $content = $this -> get('templating')
-                         -> render('FestizoomAppBundle:News:newsContainer.html.twig',
+                         -> render('FestizoomAppBundle:News:ajax/newsContainer.html.twig',
                                     [
                                         //Titre de la page
                                         'title' => 'Dernières nouvelles',

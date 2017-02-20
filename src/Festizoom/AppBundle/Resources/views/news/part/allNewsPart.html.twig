@@ -1,0 +1,9 @@
+<div class="row">
+    <div class="banner1 col s11">
+        <h1 class="truncate">{{ news.title }}</h1>
+    </div>
+</div>
+<p>Publié le {{ news.date|date('d-m-Y') }}<br /><br />{% autoescape 'html' %}{{ news.body }}{% endautoescape %}</p>
+<div class="center-align">
+    <a class="waves-effect waves-light btn black-text" href="{{ path('allNews') }}">Retour</a>
+</div>

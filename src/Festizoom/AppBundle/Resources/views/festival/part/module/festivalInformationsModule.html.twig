@@ -1,0 +1,105 @@
+<div class="row">
+    <div class="col s12">
+        <p class="center-align">Discover all usefull informations about the elctronic music festival <strong>{{ festival.name }}</strong>. In this page you will find généras informations about the festival, aftermovies, amator vidéos but also his notation realised by people who pariticiped to the festival !</p>
+    </div>
+</div>
+<div class="row">
+    <div class="banner2 col s8">
+        <h2 class="black-text">Général informations</h2>
+    </div>
+</div>
+<div class="row">
+    <ul id="tabs-swipe-demo" class="tabs black-text">
+        <li class="tab col s4"><a class="active black-text" onclick="Materialize.fadeInImage('#festival-1')" href="#festival-1"><h3 class="black-text">Informations</h3></a></li>
+        <li class="tab col s4"><a class="black-text" onclick="Materialize.fadeInImage('#festival-2')" href="#festival-2"><h3 class="black-text">Location</h3></a></li>
+        <li class="tab col s4"><a class="black-text" onclick="Materialize.fadeInImage('#festival-3')" href="#festival-3"><h3 class="black-text">Last aftermovie</h3></a></li>
+    </ul>
+    <div id="festival-1" class="col s12 .grey.lighten-5">
+        <div class="row">
+            <div class="col s10 offset-s1">
+                <ul class="collection">
+                    <li class="collection-item">
+                        <div class="row">
+                            <div class="col s5">
+                                <h4><i class="material-icons">wb_sunny</i> Type of the festival</h4>
+                            </div>
+                            <div class="col s7">
+                                {{ festival.type }}
+                            </div>
+                        </div>
+                    </li>
+                    <li class="collection-item">
+                        <div class="row">
+                            <div class="col s5">
+                                <h4><i class="material-icons">audiotrack</i>Music Kind</h4>
+                            </div>
+                            <div class="col s7">
+                                {{ festival.kind }}
+                            </div>
+                        </div>
+                    </li>
+                    <li class="collection-item">
+                        <div class="row">
+                            <div class="col s5">
+                                <h4><i class="material-icons">group</i>Capacity</h4>
+                            </div>
+                            <div class="col s7">
+                                {{ festival.capacity }}
+                            </div>
+                        </div>
+                    </li>
+                    <li class="collection-item">
+                        <div class="row">
+                            <div class="col s5">
+                                <h4><i class="material-icons">update</i>Period</h4>
+                            </div>
+                            <div class="col s7">
+                                {{ festival.period }}
+                            </div>
+                        </div>
+                    </li>
+                    <li class="collection-item">
+                        <div class="row">
+                            <div class="col s5">
+                                <h4><i class="material-icons">cake</i>Minimal age</h4>
+                            </div>
+                            <div class="col s7">
+                                {{ festival.minage }}
+                            </div>
+                        </div>
+                    </li>
+                    <li class="collection-item">
+                        <div class="row">
+                            <div class="col s5">
+                                <h4><i class="material-icons">phone_android</i>Facebook official account</h4>
+                            </div>
+                            <div class="col s7">
+                                {{ festival.furl }}
+                            </div>
+                        </div>
+                    </li>
+                    <li class="collection-item">
+                        <div class="row">
+                            <div class="col s5">
+                                <h4> <i class="material-icons">public</i>Official website</h4>
+                            </div>
+                            <div class="col s7">
+                                {{ festival.wsurl }}
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div id="festival-2" class="col s12 white">
+        <div class="video-container">
+            <iframe src="https://www.google.com/maps/embed?pb={{ festival.location }}" height="400" frameborder="0" style="border:0" allowfullscreen></iframe>
+        </div>
+    </div>
+    <div id="festival-3" class="col s12 white">
+        <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/{{ festival.aurl }}" frameborder="0" allowfullscreen></iframe>
+        </div>
+    </div>
+</div>

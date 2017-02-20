@@ -1,0 +1,15 @@
+<div class="row">
+    <div class="banner1 col s11">
+        <h1>{{ festival.name }}</h1>
+    </div>
+</div>
+{# Informations générales du festival #}
+{{ include ("FestizoomAppBundle:festival:part/module/festivalInformationsModule.html.twig") }}
+{# Notes générales du festival #}
+{{ include ("FestizoomAppBundle:festival:part/module/festivalGradeModule.html.twig") }}
+{# Liste des editions du festival #}
+{{ include ("FestizoomAppBundle:festival:part/module/festivalEditionsModule.html.twig") }}
+{# Vidéos du festival #}
+{{ include ("FestizoomAppBundle:festival:part/module/festivalVideosModule.html.twig") }}
+{# Commentaires du festival #}
+{{ include ("FestizoomAppBundle:festival:part/module/festivalCommentsModule.html.twig") }}

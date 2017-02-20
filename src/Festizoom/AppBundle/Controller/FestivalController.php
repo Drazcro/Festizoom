@@ -95,7 +95,7 @@ class FestivalController extends Controller
         //Compte le nombre de pages necessaires à la pagination des festivals
         $nbPagPage = $festivalR -> countNbPage();
         $content = $this -> get('templating')
-                         -> render('FestizoomAppBundle:Festival:festivalCommentContainer.html.twig',
+                         -> render('FestizoomAppBundle:Festival:ajax/festivalCommentContainer.html.twig',
                                     [
                                         //Titre de la page
                                         'title' => 'Festival',

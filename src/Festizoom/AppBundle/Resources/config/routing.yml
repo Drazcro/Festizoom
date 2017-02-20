@@ -54,7 +54,7 @@ getPageFestivals:
 
 #Récupérer les commentaires d'un festival associé par la page
 getPageVideo:
-    path:   /festival/{name}/page/{pagNum}
+    path:   /festival/{name}/video/page/{pagNum}
     defaults:
         _controller: FestizoomAppBundle:Video:videoPage
     requirements:
@@ -65,7 +65,7 @@ getPageVideo:
 
 #Récupérer les commentaires d'un festival associé par la page
 getPageCom:
-    path:   /festival/{name}/page/{pagNum}
+    path:   /festival/{name}/comments/page/{pagNum}
     defaults:
         _controller: FestizoomAppBundle:Comment:commentPage
     requirements:
