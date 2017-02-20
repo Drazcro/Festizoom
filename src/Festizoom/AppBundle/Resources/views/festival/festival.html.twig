@@ -8,6 +8,6 @@
         {{ include ("FestizoomAppBundle:festival:part/festivalPart.html.twig") }}
     {% else %}
         {# Liste des festivals #}
-        {{ include ("FestizoomAppBundle:festival:part/allFestivalPart.html.twig") }}
+        {{ include ("FestizoomAppBundle:festival:ajax/festivalContainer.html.twig") }}
     {% endif %}
 {% endblock %}

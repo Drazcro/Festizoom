@@ -65,7 +65,7 @@ getPageVideo:
 
 #Récupérer les commentaires d'un festival associé par la page
 getPageCom:
-    path:   /festival/{name}/comments/page/{pagNum}
+    path:   /festival/{name}/comment/page/{pagNum}
     defaults:
         _controller: FestizoomAppBundle:Comment:commentPage
     requirements:

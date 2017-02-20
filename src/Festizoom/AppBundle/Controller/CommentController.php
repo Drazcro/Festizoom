@@ -26,9 +26,9 @@ class CommentController extends Controller
                                         //Titre de la page
                                         'title' => 'Festival',
                                         //Nombre de pages necessaires à la pagination
-                                        'nbPagPage' => $nbPagPage,
+                                        'nbComPagPage' => $nbPagPage,
                                         //Page courante de la pagination
-                                        'activePage' => $pagNum,
+                                        'activeComPage' => $pagNum,
                                         //Festival associé aux commentaires
                                         'festival' => $festival,
                                         //Commentaires associés au festival

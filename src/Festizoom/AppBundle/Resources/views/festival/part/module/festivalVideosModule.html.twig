@@ -4,59 +4,7 @@
     </div>
 </div>
 {% if videos|length > 0 %}
-    <div class="videoContainer">
-        <div class="row">
-            {% for n in videos %}
-                <div class="col s4">
-                    <div class="video-container">
-                        <iframe src="{{ n.url }}" frameborder="0" allowfullscreen></iframe>
-                    </div>
-                </div>
-            {% endfor %}
-        </div>
-        <div class="row">
-            <div class="col s12">
-                <ul class="pagination">
-                    {% if(activeVidPage == 1) %}
-                        <li class="disabled">
-                            <a href="#!">
-                                <i class="material-icons">chevron_left</i>
-                            </a>
-                        </li>
-                    {% else %}
-                        <li class="waves-effect">
-                            <a class="pag4Link" href="{{ festival.uname }}/{{ activeVidPage-1 }}"><i class="material-icons">chevron_left</i>
-                            </a>
-                        </li>
-                    {% endif %}
-                    {% for n in 1..nbVidPagPage %}
-                        {% if(n == activeVidPage) %}
-                            <li class="active">
-                                <a href="#!">{{ n }}</a>
-                            </li>
-                        {% else %}
-                            <li class="waves-effect">
-                                <a class="pag4Link" class="black-text" href="{{ festival.uname }}/{{ n }}">{{ n }}</a>
-                            </li>
-                        {% endif %}
-                    {%  endfor %}
-                    {% if(activeVidPage == nbVidPagPage) %}
-                        <li class="disabled">
-                            <a href="#!">
-                                <i class="material-icons">chevron_right</i>
-                            </a>
-                        </li>
-                    {% else %}
-                        <li class="waves-effect">
-                            <a class="pag4Link" href="{{ festival.uname }}/{{ activeVidPage+1 }}">
-                                <i class="material-icons">chevron_right</i>
-                            </a>
-                        </li>
-                    {% endif %}
-                </ul>
-            </div>
-        </div>
-    </div>
+    {{ include ("FestizoomAppBundle:video:ajax/videoContainer.html.twig") }}
 {% else %}
     <div class="row">
         <div class="col s12">

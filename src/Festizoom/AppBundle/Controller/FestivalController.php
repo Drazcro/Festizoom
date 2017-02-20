@@ -104,7 +104,7 @@ class FestivalController extends Controller
                                         //Nombre de pages pour la pagination des festivals
                                         'nbPagPage' => $nbPagPage,
                                         //Page active de la pagination
-                                        'activePage' => $pagNum,
+                                        'activeVidPage' => $pagNum,
                                     ]
                                   );
         return new Response($content);
